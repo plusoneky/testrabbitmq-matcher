@@ -19,7 +19,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gxzx.testrabbitmq.config.properties.ProjectProperties;
 
 @Configuration
-public class TraderSendReceiveRabbitConfig {
+public class RabbitMQReceiverConfig {
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
@@ -44,7 +44,7 @@ public class TraderSendReceiveRabbitConfig {
 		Long workMachineId = projectProperties.getSysProperties().getSnowflakeIdWorker().getWorkMachineId();
 		String fanoutExchangeName = projectProperties.getSysProperties().getMqExchangeName();
 		String queueName = fanoutExchangeName+"_"+dataCenterId+"_"+workMachineId;    	
-        return new Queue(queueName, true, true, true);
+        return new Queue(queueName, true, false, false);  //exlusive autoDelete含义： 消费者断开，队列自动销毁
     }
     
 	@Bean
