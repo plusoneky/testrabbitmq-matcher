@@ -4,47 +4,32 @@ package com.gxzx.testrabbitmq.config.properties;
  * DEMO业务配置参数
  */
 public class SysProperties {
-	/**
-	 * APPID
-	 */
-	public String appId;
+
+
+	private SnowflakeIdWorker snowflakeIdWorker;
+
 	
-	/**
-	 * 数据中心ID(0~31)
-	 */
-	public long dataCenterId;	
-	
-	/**
-	 * 工作机器ID(0~31)
-	 */
-	public long workMachineId;			
+	private String mqExchangeName;
 
-	public String getAppId() {
-		return appId;
-	}
 
-	public void setAppId(String appId) {
-		this.appId = appId;
-	}
-
-	public long getDataCenterId() {
-		return dataCenterId;
-	}
-
-	public void setDataCenterId(long dataCenterId) {
-		this.dataCenterId = dataCenterId;
-	}
-
-	public long getWorkMachineId() {
-		return workMachineId;
-	}
-
-	public void setWorkMachineId(long workMachineId) {
-		this.workMachineId = workMachineId;
+	public SnowflakeIdWorker getSnowflakeIdWorker() {
+		return snowflakeIdWorker;
 	}
 
 
+	public void setSnowflakeIdWorker(SnowflakeIdWorker snowflakeIdWorker) {
+		this.snowflakeIdWorker = snowflakeIdWorker;
+	}
 
+
+	public String getMqExchangeName() {
+		return mqExchangeName;
+	}
+
+
+	public void setMqExchangeName(String mqExchangeName) {
+		this.mqExchangeName = mqExchangeName;
+	}
 	
 	
 }

@@ -1,18 +1,12 @@
 package com.gxzx.testrabbitmq.config.rabbitmq;
 
-import java.io.IOException;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate.ConfirmCallback;
 import org.springframework.amqp.rabbit.support.CorrelationData;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.gxzx.testrabbitmq.web.entity.EntrustMsgErrLog;
-import com.gxzx.testrabbitmq.web.mapper.EntrustMsgErrLogMapper;
 
 
 /**
@@ -28,29 +22,8 @@ public class ConfirmCallBackListener implements ConfirmCallback{
 	@Autowired
 	private ObjectMapper objectMapper;
 	
-	@Autowired
-	private EntrustMsgErrLogMapper entrustMsgErrLogMapper;
-	
 	@Override
 	public void confirm(CorrelationData correlationData, boolean ack, String cause) {
-    	EntrustMsgErrLog entrustMsgErrLog = null;
-		try {
-			entrustMsgErrLog = objectMapper.readValue(correlationData.getId(), EntrustMsgErrLog.class);
-		} catch (JsonParseException e) {
-			logger.error("",e);
-		} catch (JsonMappingException e) {
-			logger.error("",e);
-		} catch (IOException e) {
-			logger.error("",e);
-		}
-    	
-    	logger.info("发生异常事件入库： "
-    	+"etrustId="+entrustMsgErrLog.getEntrustId()
-    	+",amount="+entrustMsgErrLog.getAmount()
-    	+",availableBalanceAccountId="+entrustMsgErrLog.getAvailableBalanceAccountId()
-    	+",freezingBalanceAccountId="+entrustMsgErrLog.getFreezingBalanceAccountId());   
-    	
-    	entrustMsgErrLogMapper.insert(entrustMsgErrLog);
 		
 		if(ack){
         	logger.info("4. 消息id为: "+correlationData.getId()+"的消息，已经被ack成功");
