@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gxzx.testrabbitmq.web.mapper.CoinMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.gxzx.testrabbitmq.web.entity.Coin">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="type" property="type" />
+        <result column="title" property="title" />
+        <result column="img" property="img" />
+        <result column="sort" property="sort" />
+        <result column="fee_bili" property="feeBili" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="status" property="status" />
+        <result column="wallet_server_ip" property="walletServerIp" />
+        <result column="wallet_server_port" property="walletServerPort" />
+        <result column="wallet_server_user" property="walletServerUser" />
+        <result column="wallet_server_pwd" property="walletServerPwd" />
+        <result column="wallet_main_address" property="walletMainAddress" />
+        <result column="wallet_main_password" property="walletMainPassword" />
+        <result column="roll_in_give" property="rollInGive" />
+        <result column="roll_in_type" property="rollInType" />
+        <result column="roll_in_num" property="rollInNum" />
+        <result column="roll_in_sm" property="rollInSm" />
+        <result column="roll_in_min" property="rollInMin" />
+        <result column="roll_in_max" property="rollInMax" />
+        <result column="roll_out_sm" property="rollOutSm" />
+        <result column="roll_out_fee" property="rollOutFee" />
+        <result column="roll_out_user" property="rollOutUser" />
+        <result column="roll_out_min" property="rollOutMin" />
+        <result column="roll_out_max" property="rollOutMax" />
+        <result column="roll_out_jz" property="rollOutJz" />
+        <result column="roll_out_zd_num" property="rollOutZdNum" />
+        <result column="roll_out_day_num" property="rollOutDayNum" />
+        <result column="roll_out_num" property="rollOutNum" />
+        <result column="roll_out_zd" property="rollOutZd" />
+        <result column="roll_out_type" property="rollOutType" />
+        <result column="js_en" property="jsEn" />
+        <result column="js_content" property="jsContent" />
+        <result column="js_wallet_download" property="jsWalletDownload" />
+        <result column="js_code_download" property="jsCodeDownload" />
+        <result column="js_link" property="jsLink" />
+        <result column="js_lt" property="jsLt" />
+        <result column="js_mining" property="jsMining" />
+        <result column="cs_develop" property="csDevelop" />
+        <result column="cs_algorithm" property="csAlgorithm" />
+        <result column="cs_release_time" property="csReleaseTime" />
+        <result column="cs_block_speed" property="csBlockSpeed" />
+        <result column="cs_count" property="csCount" />
+        <result column="cs_stock" property="csStock" />
+        <result column="cs_prove" property="csProve" />
+        <result column="cs_difficulty" property="csDifficulty" />
+        <result column="cs_reward" property="csReward" />
+        <result column="cs_character" property="csCharacter" />
+        <result column="cs_short" property="csShort" />
+        <result column="tp_zs" property="tpZs" />
+        <result column="tp_js" property="tpJs" />
+        <result column="tp_yy" property="tpYy" />
+        <result column="tp_qj" property="tpQj" />
+        <result column="block_number" property="blockNumber" />
+        <result column="is_del" property="isDel" />
+        <result column="real_time_price" property="realTimePrice" />
+        <result column="token" property="token" />
+        <result column="token_decimal" property="tokenDecimal" />
+        <result column="balance_upper_limit_alarm" property="balanceUpperLimitAlarm" />
+        <result column="balance_lower_limit_alarm" property="balanceLowerLimitAlarm" />
+        <result column="txid" property="txid" />
+    </resultMap>
+
+</mapper>

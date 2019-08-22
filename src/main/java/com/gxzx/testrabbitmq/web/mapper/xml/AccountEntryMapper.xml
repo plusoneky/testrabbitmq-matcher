@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gxzx.testrabbitmq.web.mapper.AccountEntryMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.gxzx.testrabbitmq.web.entity.AccountEntry">
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="otc_account_id" property="otcAccountId" />
+        <result column="biz_type" property="bizType" />
+        <result column="amount" property="amount" />
+        <result column="coin_code" property="coinCode" />
+        <result column="account_type" property="accountType" />
+        <result column="biz_order_no" property="bizOrderNo" />
+        <result column="remark" property="remark" />
+        <result column="gmt_created_time" property="gmtCreatedTime" />
+        <result column="gmt_modified_time" property="gmtModifiedTime" />
+    </resultMap>
+
+</mapper>

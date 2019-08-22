@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gxzx.testrabbitmq.web.mapper.TradeLogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.gxzx.testrabbitmq.web.entity.TradeLog">
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="peer_id" property="peerId" />
+        <result column="user_trade_id" property="userTradeId" />
+        <result column="peer_trade_id" property="peerTradeId" />
+        <result column="market" property="market" />
+        <result column="market_id" property="marketId" />
+        <result column="price" property="price" />
+        <result column="num" property="num" />
+        <result column="mum" property="mum" />
+        <result column="fee_buy" property="feeBuy" />
+        <result column="fee_sell" property="feeSell" />
+        <result column="type" property="type" />
+        <result column="sort" property="sort" />
+        <result column="status" property="status" />
+        <result column="is_automatic" property="isAutomatic" />
+        <result column="market_type" property="marketType" />
+        <result column="automatic_id" property="automaticId" />
+        <result column="show_trade" property="showTrade" />
+        <result column="buy_order_no" property="buyOrderNo" />
+        <result column="sell_order_no" property="sellOrderNo" />
+        <result column="gmt_created_time" property="gmtCreatedTime" />
+        <result column="gmt_updated_time" property="gmtUpdatedTime" />
+    </resultMap>
+
+</mapper>

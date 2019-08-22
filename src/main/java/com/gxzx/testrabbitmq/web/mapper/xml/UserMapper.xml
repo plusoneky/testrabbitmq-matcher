@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gxzx.testrabbitmq.web.mapper.UserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.gxzx.testrabbitmq.web.entity.User">
+        <id column="id" property="id" />
+        <result column="username" property="username" />
+        <result column="truename" property="truename" />
+        <result column="nickname" property="nickname" />
+        <result column="moble" property="moble" />
+        <result column="password" property="password" />
+        <result column="paypassword" property="paypassword" />
+        <result column="checktype" property="checktype" />
+        <result column="idcardtype" property="idcardtype" />
+        <result column="conf" property="conf" />
+        <result column="idcard" property="idcard" />
+        <result column="logins" property="logins" />
+        <result column="addip" property="addip" />
+        <result column="addr" property="addr" />
+        <result column="email" property="email" />
+        <result column="alipay" property="alipay" />
+        <result column="idcard_img1" property="idcardImg1" />
+        <result column="idcard_img2" property="idcardImg2" />
+        <result column="idcard_img3" property="idcardImg3" />
+        <result column="cardrz" property="cardrz" />
+        <result column="head_url" property="headUrl" />
+        <result column="type" property="type" />
+        <result column="status" property="status" />
+        <result column="seller_ident" property="sellerIdent" />
+        <result column="flag" property="flag" />
+        <result column="google_secret" property="googleSecret" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="refuse_cause" property="refuseCause" />
+        <result column="auth_time" property="authTime" />
+        <result column="ident_type" property="identType" />
+    </resultMap>
+
+</mapper>

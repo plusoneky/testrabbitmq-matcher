@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gxzx.testrabbitmq.web.mapper.EntrustOrderMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.gxzx.testrabbitmq.web.entity.EntrustOrder">
+        <id column="id" property="id" />
+        <result column="market_id" property="marketId" />
+        <result column="market_code" property="marketCode" />
+        <result column="entrust_volume" property="entrustVolume" />
+        <result column="entrust_price" property="entrustPrice" />
+        <result column="deal_volume" property="dealVolume" />
+        <result column="deal_avg_price" property="dealAvgPrice" />
+        <result column="fee_rate" property="feeRate" />
+        <result column="fee_rate_discount" property="feeRateDiscount" />
+        <result column="frozen_fee" property="frozenFee" />
+        <result column="total_deal_fee" property="totalDealFee" />
+        <result column="user_id" property="userId" />
+        <result column="order_type" property="orderType" />
+        <result column="trade_type" property="tradeType" />
+        <result column="entrust_way" property="entrustWay" />
+        <result column="status" property="status" />
+        <result column="entrust_time" property="entrustTime" />
+        <result column="gmt_created_time" property="gmtCreatedTime" />
+        <result column="gmt_modified_time" property="gmtModifiedTime" />
+    </resultMap>
+
+</mapper>

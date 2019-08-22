@@ -1,39 +1,34 @@
 package com.gxzx.testrabbitmq.config.rabbitmq;
 
-import java.math.BigDecimal;
-
-import javax.annotation.Resource;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.AcknowledgeMode;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.ChannelAwareMessageListener;
 import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.redis.core.RedisTemplate;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gxzx.testrabbitmq.config.properties.ProjectProperties;
 
-
-
 @Configuration
-public class TraderSendReceiveRabbitConfig extends MatcherCommRabbitConfig{
+public class TraderSendReceiveRabbitConfig {
 	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	@Autowired
 	private ObjectMapper objectMapper;
 	
-	@Resource
-	private RedisTemplate<String, Object> redisTemplate;
 	
 	@Autowired
 	ProjectProperties projectProperties;
+	
+	@Autowired
+	public ConnectionFactory connectionFactory;
 	
 	@Bean
 	public SimpleMessageListenerContainer matcherSuccMsgContainer() {
