@@ -9,6 +9,7 @@
         <result column="market_code" property="marketCode" />
         <result column="entrust_volume" property="entrustVolume" />
         <result column="entrust_price" property="entrustPrice" />
+        <result column="entrust_amount" property="entrustAmount" />
         <result column="deal_volume" property="dealVolume" />
         <result column="deal_avg_price" property="dealAvgPrice" />
         <result column="fee_rate" property="feeRate" />
@@ -16,6 +17,8 @@
         <result column="frozen_fee" property="frozenFee" />
         <result column="total_deal_fee" property="totalDealFee" />
         <result column="user_id" property="userId" />
+        <result column="available_balance_account_id" property="availableBalanceAccountId" />
+        <result column="freezing_balance_account_id" property="freezingBalanceAccountId" />
         <result column="order_type" property="orderType" />
         <result column="trade_type" property="tradeType" />
         <result column="entrust_way" property="entrustWay" />
