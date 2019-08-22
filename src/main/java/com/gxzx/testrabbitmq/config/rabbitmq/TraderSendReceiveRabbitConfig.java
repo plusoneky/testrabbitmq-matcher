@@ -3,6 +3,9 @@ package com.gxzx.testrabbitmq.config.rabbitmq;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.AcknowledgeMode;
+import org.springframework.amqp.core.Binding;
+import org.springframework.amqp.core.BindingBuilder;
+import org.springframework.amqp.core.FanoutExchange;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
@@ -23,7 +26,6 @@ public class TraderSendReceiveRabbitConfig {
 	@Autowired
 	private ObjectMapper objectMapper;
 	
-	
 	@Autowired
 	ProjectProperties projectProperties;
 	
@@ -31,16 +33,29 @@ public class TraderSendReceiveRabbitConfig {
 	public ConnectionFactory connectionFactory;
 	
 	@Bean
-	public SimpleMessageListenerContainer matcherSuccMsgContainer() {
+	public FanoutExchange fanoutExchange() {
+		String fanoutExchangeName = projectProperties.getSysProperties().getMqExchangeName();	
+		return new FanoutExchange(fanoutExchangeName);
+	}	
+	
+    @Bean
+    public Queue queue(){
 		Long dataCenterId = projectProperties.getSysProperties().getSnowflakeIdWorker().getDataCenterId();
 		Long workMachineId = projectProperties.getSysProperties().getSnowflakeIdWorker().getWorkMachineId();
-		String mqExchangeName = projectProperties.getSysProperties().getMqExchangeName();
-		String queueName = mqExchangeName+"_"+dataCenterId+"_"+workMachineId;
-		logger.info("rabbitmq listener queueName="+queueName);
-		
-		Queue queue= new Queue(queueName, true, true, true);
+		String fanoutExchangeName = projectProperties.getSysProperties().getMqExchangeName();
+		String queueName = fanoutExchangeName+"_"+dataCenterId+"_"+workMachineId;    	
+        return new Queue(queueName, true, true, true);
+    }
+    
+	@Bean
+	public Binding bindingTradeOrderSuccExchange(Queue queue, FanoutExchange fanoutExchange) {
+		return BindingBuilder.bind(queue).to(fanoutExchange);
+	}
+	
+	@Bean
+	public SimpleMessageListenerContainer matcherSuccMsgContainer() {
 		SimpleMessageListenerContainer container = new SimpleMessageListenerContainer(connectionFactory);
-		container.setQueues(queue);
+		container.setQueues(queue());
 		container.setExposeListenerChannel(true);
 		container.setMaxConcurrentConsumers(1);
 		container.setConcurrentConsumers(1);

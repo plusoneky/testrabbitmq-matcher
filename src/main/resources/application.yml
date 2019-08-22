@@ -130,7 +130,7 @@ project-properties:
       #数据中心ID(0~31)
       dataCenterId: 0 
       #工作机器ID(0~31)
-      workMachineId: 1
+      workMachineId: 2
     mq-exchange-name: COMM_MARKET_NAME
   #业务参数
   biz-properties: 
