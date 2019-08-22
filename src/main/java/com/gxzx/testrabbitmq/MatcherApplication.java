@@ -11,10 +11,10 @@ import org.springframework.context.annotation.Configuration;
 
 @SpringBootApplication
 @Configuration
-public class WebApplication {
-	public final static Logger logger = LoggerFactory.getLogger(WebApplication.class);
+public class MatcherApplication {
+	public final static Logger logger = LoggerFactory.getLogger(MatcherApplication.class);
     public static void main(String[] args) {
-		SpringApplication springApplication = new SpringApplication(WebApplication.class);
+		SpringApplication springApplication = new SpringApplication(MatcherApplication.class);
 		springApplication.setBannerMode(Banner.Mode.CONSOLE); 
 		springApplication.run(args);
 	}
