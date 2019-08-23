@@ -44,7 +44,12 @@ public class RabbitMQReceiverConfig {
 		Long workMachineId = projectProperties.getSysProperties().getSnowflakeIdWorker().getWorkMachineId();
 		String fanoutExchangeName = projectProperties.getSysProperties().getMqExchangeName();
 		String queueName = fanoutExchangeName+"_"+dataCenterId+"_"+workMachineId;    	
-        return new Queue(queueName, true, false, false);  //exlusive autoDelete含义： 消费者断开，队列自动销毁
+		//exlusive autoDelete含义： 消费者断开，队列自动销毁。从机重启后，重新同步买卖深度时，在订阅队列时，可以有两种细节方案：
+		//1、MQ队列永久方式，那么从机按照主机当前的最新委托单ID是否相等为准，加载主机的深度，抛弃掉主机ID之前的委托
+		//2、MQ队列自动销毁方式，从机启动与MQ重新建立队列后，接受委托，如果是未同步状态则返回NACK，重新入队，并记录下委托时间和ID。
+		//向主机发送同步深度请求，如果主机返回的ID和委托时间小于从机队列消费的委托ID时间，则隔一段时间后，继续发送同步请求，直到委托时间大于从机的委托时间3分钟后，开始同步。按照主机当前的最新委托单ID的时间戳，如果时间戳小于当前时间，则从机
+        //综合考虑，方案1更适合
+		return new Queue(queueName, true, false, false);  
     }
     
 	@Bean
