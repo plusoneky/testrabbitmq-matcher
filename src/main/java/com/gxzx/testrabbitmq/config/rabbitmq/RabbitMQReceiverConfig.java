@@ -64,7 +64,7 @@ public class RabbitMQReceiverConfig {
 		container.setExposeListenerChannel(true);
 		container.setMaxConcurrentConsumers(1);
 		container.setConcurrentConsumers(1);
-		container.setAcknowledgeMode(AcknowledgeMode.AUTO);            //设置确认模式为自动确认
+		container.setAcknowledgeMode(AcknowledgeMode.NONE);            //设置确认模式为自动确认
 		container.setMessageListener(new ChannelAwareMessageListener() {
 			public void onMessage(Message message, com.rabbitmq.client.Channel channel) throws Exception {
 				logger.info("matcherSuccMsgContainer 消费端接收到消息: getDeliveryTag="+message.getMessageProperties().getDeliveryTag()+",Priority="+message.getMessageProperties().getPriority() +", routingKey="+message.getMessageProperties().getReceivedRoutingKey()+",Properties="+message.getMessageProperties() + ", message=" + new String(message.getBody()));
