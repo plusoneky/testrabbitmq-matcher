@@ -18,6 +18,10 @@ import org.springframework.context.annotation.Configuration;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gxzx.testrabbitmq.config.properties.ProjectProperties;
 
+/**
+ * @author Administrator
+ * 
+ */
 @Configuration
 public class RabbitMQReceiverConfig {
 	
